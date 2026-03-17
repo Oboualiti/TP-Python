@@ -1,0 +1,20 @@
+{% load static %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Projet Django</title>
+</head>
+<body>
+    <h1>Bienvenue {{name}}</h1> <h3>Compteur de mots</h3>
+    <form method="POST" action="counter">
+        {% csrf_token %} <textarea name="text" rows="10" cols="30"></textarea><br>
+        <input type="submit" value="Soumettre">
+    </form>
+
+    <hr>
+    <h3>Fonctionnalités disponibles :</h3>
+    <ul>
+        {% for feature in features %} <li><strong>{{feature.name}}</strong> : {{feature.details}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
